@@ -1,0 +1,237 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+header {
+  padding: 40px 0;
+}
+header .header_content {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 992px) {
+  header .header_content {
+    display: block;
+    padding-left: 30px;
+  }
+}
+@media screen and (max-width: 992px) {
+  header .header_content .header_logo {
+    margin-bottom: 20px;
+  }
+}
+header .header_content .header_logo span {
+  font-size: 25px;
+  font-weight: 700;
+  color: #bb2649;
+}
+header .header_content .header_nav ul {
+  list-style: none;
+}
+header .header_content .header_nav ul li {
+  display: inline;
+  margin-right: 20px;
+  position: relative;
+}
+header .header_content .header_nav ul li::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  background-color: #bb2649;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  transition: all 0.5s;
+}
+header .header_content .header_nav ul li.active a {
+  color: #bb2649;
+}
+header .header_content .header_nav ul li.active::after {
+  width: 100%;
+}
+header .header_content .header_nav ul li:hover::after {
+  width: 100%;
+}
+header .header_content .header_nav ul li:hover a {
+  color: #bb2649;
+}
+header .header_content .header_nav ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1d355e;
+}
+
+.banner {
+  background-image: url("https://images.sidearmdev.com/resize?url=https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/owlsports.com/images/2020/2/26/TU_NikeAnnouncement.jpg&height=1100&type=webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px 0;
+  background-position: center;
+}
+.banner .banner_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (max-width: 992px) {
+  .banner .banner_content {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.banner .banner_content .banner_text {
+  width: 40%;
+}
+@media screen and (max-width: 992px) {
+  .banner .banner_content .banner_text {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+}
+.banner .banner_content .banner_text h1 {
+  font-size: 60px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.banner .banner_content .banner_text .sub_title {
+  font-size: 25px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 20px 0;
+}
+.banner .banner_content .banner_text .description {
+  line-height: 1.5;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+}
+.banner .banner_content .banner_text .button_group {
+  margin-top: 15px;
+}
+.banner .banner_content .banner_text .button_group .btn_info {
+  padding: 15px 40px;
+  background-color: #ffffff;
+  border: 2px solid #bb2649;
+  color: #bb2649;
+  transition: all 0.5s;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.banner .banner_content .banner_text .button_group .btn_info:hover {
+  color: #ffffff;
+  border: 2px solid #bb2649;
+  background-color: #bb2649;
+}
+.banner .banner_content .banner_text .button_group .btn_shop {
+  padding: 15px 40px;
+  background-color: #bb2649;
+  border: 2px solid transparent;
+  color: #ffffff;
+  transition: all 0.5s;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: #ffffff 0px 5px 15px;
+}
+.banner .banner_content .banner_text .button_group .btn_shop:hover {
+  color: #bb2649;
+  border: 2px solid #bb2649;
+  background-color: #ffffff;
+}
+.banner .banner_content .banner_img {
+  width: 50%;
+}
+.banner .banner_content .banner_img img {
+  width: 100%;
+}
+
+.product {
+  padding: 80px 0 30px;
+}
+.product .product_title {
+  text-align: center;
+}
+.product .product_title h2 {
+  font-size: 25px;
+  font-weight: 700;
+  color: #1d355e;
+}
+.product .product_content {
+  margin-top: 40px;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 992px) {
+  .product .product_content {
+    padding-left: 30px;
+  }
+}
+.product .product_content .product_item {
+  width: calc(33.3333333333% - 30px);
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 8px;
+}
+@media screen and (max-width: 992px) {
+  .product .product_content .product_item {
+    width: calc(50% - 30px);
+  }
+}
+.product .product_content .product_item img {
+  width: 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 8px;
+}
+.product .product_content .product_item .product_text {
+  margin-top: 10px;
+}
+.product .product_content .product_item .product_text h3 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1d355e;
+}
+.product .product_content .product_item .product_text .shortDescription {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 300;
+  color: #1d355e;
+}
+.product .product_content .product_item .product_text .buy_price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+.product .product_content .product_item .product_text .buy_price span {
+  width: 50%;
+  text-align: center;
+}
+.product .product_content .product_item .product_text .buy_price button {
+  width: 50%;
+  padding: 20px 40px;
+  background-color: #ffffff;
+  border: none;
+  color: #bb2649;
+  transition: all 0.5s;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.product .product_content .product_item .product_text .buy_price button:hover {
+  color: #ffffff;
+  border: none;
+  background-color: #bb2649;
+}

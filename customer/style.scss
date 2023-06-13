@@ -1,0 +1,254 @@
+@import "./helpers/variables.scss";
+@import "./helpers/helpers";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+header {
+  padding: 40px 0;
+  .header_content {
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: 992px) {
+      & {
+        display: block;
+        padding-left: 30px;
+      }
+    }
+
+    .header_logo {
+      @media screen and (max-width: 992px) {
+        & {
+          margin-bottom: 20px;
+        }
+      }
+
+      span {
+        // font-size: $fs-3;
+        // font-weight: $fw-bold;
+        // color: $color-primary;
+        @include styleText($fs-3, $fw-bold, $color-primary);
+      }
+    }
+    .header_nav {
+      ul {
+        list-style: none;
+        li {
+          display: inline;
+          margin-right: 20px;
+          position: relative;
+
+          &::after {
+            content: "";
+            width: 0;
+            height: 3px;
+            background-color: $color-primary;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            transition: all 0.5s;
+          }
+
+          &.active {
+            a {
+              color: $color-primary;
+            }
+            &::after {
+              width: 100%;
+            }
+          }
+
+          &:hover {
+            &::after {
+              width: 100%;
+            }
+            a {
+              color: $color-primary;
+            }
+          }
+
+          a {
+            text-decoration: none;
+            @include styleText($fs-1, $fw-semibold, $color-secondary);
+          }
+        }
+      }
+    }
+  }
+}
+
+.banner {
+  background-image: url("https://images.sidearmdev.com/resize?url=https://dxbhsrqyrr690.cloudfront.net/sidearm.nextgen.sites/owlsports.com/images/2020/2/26/TU_NikeAnnouncement.jpg&height=1100&type=webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px 0;
+  background-position: center;
+
+  .banner_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: 992px) {
+      & {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    .banner_text {
+      width: 40%;
+
+      @media screen and (max-width: 992px) {
+        & {
+          text-align: center;
+          margin-bottom: 50px;
+        }
+      }
+
+      h1 {
+        @include styleText($fs-5, $fw-bold, $color-white);
+      }
+
+      .sub_title {
+        @include styleText($fs-3, $fw-bold, $color-white);
+        margin: 20px 0;
+      }
+
+      .description {
+        line-height: 1.5;
+        @include styleText($fs-2, $fw-medium, $color-white);
+      }
+
+      .button_group {
+        margin-top: 15px;
+        .btn_info {
+          @include styleButton(
+            15px 40px,
+            $color-white,
+            2px solid $color-primary,
+            $color-primary,
+            $color-white,
+            2px solid $color-primary,
+            $color-primary
+          );
+          margin-right: 10px;
+        }
+
+        .btn_shop {
+          @include styleButton(
+            15px 40px,
+            $color-primary,
+            2px solid transparent,
+            $color-white,
+            $color-primary,
+            2px solid $color-primary,
+            $color-white
+          );
+          box-shadow: $color-white 0px 5px 15px;
+        }
+      }
+    }
+
+    .banner_img {
+      width: 50%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.product {
+  padding: 80px 0 30px;
+
+  .product_title {
+    text-align: center;
+
+    h2 {
+      @include styleText($fs-3, $fw-bold, $color-secondary);
+    }
+  }
+
+  .product_content {
+    margin-top: 40px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 992px) {
+      & {
+        padding-left: 30px;
+      }
+    }
+
+    .product_item {
+      width: calc(100% / 3 - 30px);
+      background-color: $color-white;
+      padding: 20px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      border-radius: 8px;
+
+      @media screen and (max-width: 992px) {
+        & {
+          width: calc(100% / 2 - 30px);
+        }
+      }
+
+      img {
+        width: 100%;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 8px;
+      }
+      .product_text {
+        margin-top: 10px;
+        h3 {
+          display: flex;
+          justify-content: space-between;
+          @include styleText($fs-2, $fw-bold, $color-secondary);
+        }
+
+        .shortDescription {
+          margin-top: 5px;
+          @include styleText($fs-1, $fw-thin, $color-secondary);
+        }
+
+        .buy_price {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 5px;
+
+          span {
+            width: 50%;
+            text-align: center;
+          }
+
+          button {
+            width: 50%;
+            @include styleButton(
+              20px 40px,
+              $color-white,
+              none,
+              $color-primary,
+              $color-white,
+              none,
+              $color-primary
+            );
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+          }
+        }
+      }
+    }
+  }
+}
