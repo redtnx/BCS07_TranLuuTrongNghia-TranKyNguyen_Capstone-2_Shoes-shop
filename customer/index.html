@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Cyber Shoes</title>
     <!-- FontAwesome 6.2.0 CSS -->
     <link
       rel="stylesheet"
@@ -45,7 +45,7 @@
           <nav class="header_nav">
             <ul>
               <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">Products</a></li>
+              <li><a href="#">Admin</a></li>
               <li><a href="#">Sign Up</a></li>
             </ul>
           </nav>
@@ -78,10 +78,31 @@
       </div>
     </section>
 
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModalCenter"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div
+        id="modal-content"
+        class="modal-dialog modal-dialog-centered"
+        role="document"
+      ></div>
+    </div>
+
     <section class="product">
       <div class="container">
         <div class="product_title">
           <h2>-Featured Products-</h2>
+          <select name="" id="brand">
+            <option value="all">All</option>
+            <option value="nike">Nike</option>
+            <option value="adidas">Adidas</option>
+          </select>
         </div>
         <div id="allProducts" class="product_content"></div>
       </div>

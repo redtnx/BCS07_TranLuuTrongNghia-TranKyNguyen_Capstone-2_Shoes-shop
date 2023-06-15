@@ -19,82 +19,83 @@ function renderProducts(arr) {
   var content = "";
   for (var i = 0; i < arr.length; i++) {
     var products = arr[i];
-    content += `
-    
+
+    content += `    
       <div class="product_item">
-        <a data-toggle="modal"
+        <a onclick="getDetailedProduct('${products.id}')" data-toggle="modal"
         data-target="#exampleModalCenter" href="">
         <img src=${products.image} />
         </a>
 
- <!-- Modal -->
-    <div
-      class="modal fade"
-      id="exampleModalCenter"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalCenterTitle"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title" id="exampleModalLongTitle">${products.name}</h3>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-          <img src=${products.image} />
-          <div class="product_text">
-          <p class="shortDescription">${products.shortDescription}</p>
-              <div class="buy_price">   
-                <button>
-                  <i class="fa-solid fa-cart-shopping"></i>Buy now
-                </button>
-                  <span>
-                  $${products.price}
-                  </span>
-                
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
         <div class="product_text">
           <h3>${products.name}</h3>
           <p class="shortDescription">${products.shortDescription}</p>
-              <div class="buy_price">
-                
-                <button>
-                  <i class="fa-solid fa-cart-shopping"></i>Buy now
-                </button>
-                  <span>
-                  $${products.price}
-                  </span>
-                
-              </div>
+          <div class="buy_price">                
+            <button>
+              <i class="fa-solid fa-cart-shopping"></i>Buy now
+            </button>
+            <span>
+              $${products.price}
+            </span>                
             </div>
-      </div>
-    
+        </div>
+      </div>    
     `;
   }
   document.getElementById("allProducts").innerHTML = content;
 }
+
+function getDetailedProduct(id) {
+  console.log(id);
+  var promise = axios({
+    url: `https://shop.cyberlearn.vn/api/Product/getbyid?id=${id}`,
+    method: "get",
+  });
+  promise.then(function (res) {
+    console.log(res.data.content);
+    var product = res.data.content;
+    renderDetailedProduct(product);
+  });
+  promise.catch(function (err) {
+    console.log(err);
+  });
+}
+
+function renderDetailedProduct(product) {
+  document.getElementById("modal-content").innerHTML = `
+  <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="exampleModalLongTitle">
+            <h3>${product.name}</h3>
+            <p class="description">${product.description}</p>
+            </h3>
+    
+          </div>
+          <div id="product-details" class="modal-body">
+          <img src=${product.image} />
+          <p>AVAILABLE SIZE</p>
+          <p class="size">${product.size}</p>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+  `;
+}
+
+// function selectedBrand() {
+//   var brand = document.getElementById("brand").value;
+//   if (value === "all") {
+//     renderProducts(arr);
+//   } else {
+//   }
+// }
