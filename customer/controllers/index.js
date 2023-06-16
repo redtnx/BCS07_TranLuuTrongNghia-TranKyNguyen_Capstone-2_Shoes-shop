@@ -1,3 +1,5 @@
+var listProducts = [];
+
 function getAllProducts() {
   // dùng axios gọi dữ liệu từ server về
   var promise = axios({
@@ -6,6 +8,7 @@ function getAllProducts() {
   });
   promise.then(function (res) {
     console.log(res);
+    listProducts = res.data.content;
     renderProducts(res.data.content);
   });
   promise.catch(function (err) {
@@ -92,10 +95,17 @@ function renderDetailedProduct(product) {
   `;
 }
 
-// function selectedBrand() {
-//   var brand = document.getElementById("brand").value;
-//   if (value === "all") {
-//     renderProducts(arr);
-//   } else {
-//   }
-// }
+function getProductByCategory(categoryId) {
+  var promise = axios({
+    url: `https://shop.cyberlearn.vn/api/Product/getProductByCategory?categoryId=${categoryId}`,
+    method: "get",
+  });
+  promise.then(function (res) {
+    console.log(res);
+    renderProducts(res.data.content);
+  });
+
+  promise.catch(function (err) {
+    console.log(err);
+  });
+}

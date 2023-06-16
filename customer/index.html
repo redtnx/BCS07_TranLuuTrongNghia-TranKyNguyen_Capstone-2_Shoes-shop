@@ -44,9 +44,11 @@
           </div>
           <nav class="header_nav">
             <ul>
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">Admin</a></li>
-              <li><a href="#">Sign Up</a></li>
+              <li class="active">
+                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+              </li>
+              <li><a href="#">Login</a></li>
+              <li><a href="#">Register</a></li>
             </ul>
           </nav>
         </div>
@@ -98,11 +100,25 @@
       <div class="container">
         <div class="product_title">
           <h2>-Featured Products-</h2>
-          <select name="" id="brand">
-            <option value="all">All</option>
-            <option value="nike">Nike</option>
-            <option value="adidas">Adidas</option>
-          </select>
+          <button class="btn btn-danger" onclick="getAllProducts()">All</button>
+          <button class="btn btn-danger" onclick="getProductByCategory('NIKE')">
+            Nike
+          </button>
+          <button
+            class="btn btn-danger"
+            onclick="getProductByCategory('ADIDAS')"
+          >
+            Adidas
+          </button>
+          <button class="btn btn-danger" onclick="getProductByCategory('MEN')">
+            Men
+          </button>
+          <button
+            class="btn btn-danger"
+            onclick="getProductByCategory('WOMEN')"
+          >
+            Women
+          </button>
         </div>
         <div id="allProducts" class="product_content"></div>
       </div>
