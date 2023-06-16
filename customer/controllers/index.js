@@ -1,5 +1,18 @@
 var listProducts = [];
 
+var btnContainer = document.getElementById("buttonActive");
+var btns = btnContainer.getElementsByClassName("btn-danger");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function () {
+    var current = document.getElementsByClassName("active");
+
+    if (current.length > 0) {
+      document.querySelector(".active").classList.remove("active");
+    }
+
+    this.className += " active";
+  });
+}
 function getAllProducts() {
   // dùng axios gọi dữ liệu từ server về
   var promise = axios({
@@ -35,7 +48,7 @@ function renderProducts(arr) {
           <p class="shortDescription">${products.shortDescription}</p>
           <div class="buy_price">                
             <button>
-              <i class="fa-solid fa-cart-shopping"></i>Buy now
+              <i class="fa-solid fa-cart-shopping"></i>
             </button>
             <span>
               $${products.price}
@@ -79,15 +92,8 @@ function renderDetailedProduct(product) {
           <p>AVAILABLE SIZE</p>
           <p class="size">${product.size}</p>
             <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
               <button type="button" class="btn btn-primary">
-                Save changes
+                Add to cart
               </button>
             </div>
           </div>

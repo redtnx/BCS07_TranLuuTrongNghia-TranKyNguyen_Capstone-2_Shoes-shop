@@ -44,10 +44,7 @@
           </div>
           <nav class="header_nav">
             <ul>
-              <li class="active">
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-              </li>
-              <li><a href="#">Login</a></li>
+              <li class="active"><a href="#">Login</a></li>
               <li><a href="#">Register</a></li>
             </ul>
           </nav>
@@ -66,21 +63,12 @@
               quod autem sed doloremque sapiente quam dolore cupiditate nostrum
               cum distinctio.
             </p>
-
-            <div class="button_group">
-              <button class="btn_info">
-                <i class="fa-solid fa-circle-info"></i>Info
-              </button>
-              <button class="btn_shop">
-                <i class="fa-solid fa-cart-shopping"></i>Shop
-              </button>
-            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Modal -->
+    <!-- Detailed Product Modal -->
     <div
       class="modal fade"
       id="exampleModalCenter"
@@ -89,36 +77,107 @@
       aria-labelledby="exampleModalCenterTitle"
       aria-hidden="true"
     >
-      <div
-        id="modal-content"
-        class="modal-dialog modal-dialog-centered"
-        role="document"
-      ></div>
+      <div id="modal-content" class="modal-dialog" role="document"></div>
     </div>
+
+    <!-- Cart Modal -->
+    <!-- <div class="container">
+      <div class="btn-cart" style="left: 1670px">
+        <button
+          type="button"
+          class="btn btn-dark"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          <i class="fa fa-shopping-cart"></i>
+        </button>
+        <p class="quantity-of-cart-list"></p>
+      </div>
+
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                <i class="fa fa-shopping-cart"></i>
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">
+              Giỏ hàng hiện chưa có sản phẩm nào.
+              <div id="total"></div>
+            </div>
+
+            <div class="modal-footer">
+              <div id="footer"></div>
+              <div>
+                <button
+                  id="thanhToan"
+                  class="btn btn-info"
+                  style="width: 100px"
+                  onclick="payment()"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                >
+                  <i class="fa fa-dollar-sign"></i>
+                </button>
+                <button class="btn btn-danger" onclick="clearCart()">
+                  <i class="fa fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
 
     <section class="product">
       <div class="container">
         <div class="product_title">
           <h2>-Featured Products-</h2>
-          <button class="btn btn-danger" onclick="getAllProducts()">All</button>
-          <button class="btn btn-danger" onclick="getProductByCategory('NIKE')">
-            Nike
-          </button>
-          <button
-            class="btn btn-danger"
-            onclick="getProductByCategory('ADIDAS')"
-          >
-            Adidas
-          </button>
-          <button class="btn btn-danger" onclick="getProductByCategory('MEN')">
-            Men
-          </button>
-          <button
-            class="btn btn-danger"
-            onclick="getProductByCategory('WOMEN')"
-          >
-            Women
-          </button>
+          <div id="buttonActive" class="button_group">
+            <button class="btn btn-danger" onclick="getAllProducts()">
+              All
+            </button>
+            <button
+              class="btn btn-danger"
+              onclick="getProductByCategory('NIKE')"
+            >
+              Nike
+            </button>
+            <button
+              class="btn btn-danger"
+              onclick="getProductByCategory('ADIDAS')"
+            >
+              Adidas
+            </button>
+            <button
+              class="btn btn-danger"
+              onclick="getProductByCategory('MEN')"
+            >
+              Men
+            </button>
+            <button
+              class="btn btn-danger"
+              onclick="getProductByCategory('WOMEN')"
+            >
+              Women
+            </button>
+          </div>
         </div>
         <div id="allProducts" class="product_content"></div>
       </div>

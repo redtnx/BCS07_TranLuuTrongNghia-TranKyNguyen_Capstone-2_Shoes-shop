@@ -129,35 +129,6 @@ header {
         line-height: 1.5;
         @include styleText($fs-2, $fw-medium, $color-white);
       }
-
-      .button_group {
-        margin-top: 15px;
-        .btn_info {
-          @include styleButton(
-            15px 40px,
-            $color-white,
-            2px solid $color-primary,
-            $color-primary,
-            $color-white,
-            2px solid $color-primary,
-            $color-primary
-          );
-          margin-right: 10px;
-        }
-
-        .btn_shop {
-          @include styleButton(
-            15px 40px,
-            $color-primary,
-            2px solid transparent,
-            $color-white,
-            $color-primary,
-            2px solid $color-primary,
-            $color-white
-          );
-          box-shadow: $color-white 0px 5px 15px;
-        }
-      }
     }
 
     .banner_img {
@@ -165,6 +136,18 @@ header {
       img {
         width: 100%;
       }
+    }
+  }
+}
+
+.modal-content {
+  .modal-header {
+    background-color: $color-primary;
+    h3 {
+      color: $color-white;
+    }
+    p {
+      color: $color-white;
     }
   }
 }
@@ -177,6 +160,31 @@ header {
 
     h2 {
       @include styleText($fs-3, $fw-bold, $color-secondary);
+    }
+    .button_group {
+      .btn-danger {
+        @include styleButton(
+          10px 20px,
+          $color-primary,
+          2px solid transparent,
+          $color-white,
+          $color-primary,
+          2px solid $color-primary,
+          $color-white
+        );
+        margin-right: 5px;
+        &.active {
+          @include styleButton(
+            10px 20px,
+            $color-white,
+            2px solid $color-primary,
+            $color-primary,
+            $color-white,
+            2px solid $color-primary,
+            $color-primary
+          );
+        }
+      }
     }
   }
 
@@ -193,6 +201,26 @@ header {
     }
 
     .product_item {
+      transition: all 0.5s;
+      &:hover {
+        transform: translateY(-20px);
+        img {
+          filter: grayscale(0);
+        }
+        background-color: $color-primary;
+        .product_text {
+          h3,
+          p {
+            color: $color-white;
+          }
+          .buy_price {
+            span {
+              @include styleText($fs-2, $fw-bold, $color-white);
+            }
+          }
+        }
+      }
+
       width: calc(100% / 3 - 30px);
       background-color: $color-white;
       padding: 20px;
@@ -206,11 +234,17 @@ header {
       }
 
       img {
+        transition: all 0.5s;
+        filter: grayscale(9);
+
+        background-color: $color-white;
         width: 100%;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         border-radius: 8px;
       }
       .product_text {
+        transition: all 0.5s;
+
         margin-top: 10px;
         h3 {
           display: flex;
@@ -230,6 +264,8 @@ header {
           margin-top: 5px;
 
           span {
+            color: $color-primary;
+            font-weight: bold;
             width: 50%;
             text-align: center;
           }
