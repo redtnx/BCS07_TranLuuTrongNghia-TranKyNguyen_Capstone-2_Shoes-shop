@@ -71,6 +71,7 @@ function getDetailedProduct(id) {
     console.log(res.data.content);
     var product = res.data.content;
     renderDetailedProduct(product);
+    renderSize(product);
   });
   promise.catch(function (err) {
     console.log(err);
@@ -79,26 +80,47 @@ function getDetailedProduct(id) {
 
 function renderDetailedProduct(product) {
   document.getElementById("modal-content").innerHTML = `
-  <div class="modal-content">
-          <div class="modal-header">
+  <div class="modal-content product-modal-content">
+          <div class="modal-header product-modal-header">
             <h3 class="modal-title" id="exampleModalLongTitle">
             <h3>${product.name}</h3>
             <p class="description">${product.description}</p>
             </h3>
     
           </div>
-          <div id="product-details" class="modal-body">
+          <div id="product-details" class="modal-body product-modal-body">
           <img src=${product.image} />
-          <p>AVAILABLE SIZE</p>
-          <p class="size">${product.size}</p>
-            <div class="modal-footer">
+          <h4>AVAILABLE SIZE</h4>
+          <p id="available-size" class="size"></p>
+          <p>In stock: ${product.quantity}</p>
+
+          <div class="related-products">
+            <h3>Related Products</h3>
+          </div>
+          </div>
+
+
+          <div class="modal-footer product-modal-footer">
               <button type="button" class="btn btn-primary">
                 Add to cart
               </button>
             </div>
           </div>
-        </div>
   `;
+}
+
+function renderSize(product) {
+  var size = product.size;
+  console.log(size);
+  var content = "";
+  for (var i = 0; i < size.length; i++) {
+    content += `
+    <div class="size-buttons">
+    <button class="btn btn-primary">${size[i]}</button>
+    </div>
+    `;
+  }
+  document.getElementById("available-size").innerHTML = content;
 }
 
 function getProductByCategory(categoryId) {
