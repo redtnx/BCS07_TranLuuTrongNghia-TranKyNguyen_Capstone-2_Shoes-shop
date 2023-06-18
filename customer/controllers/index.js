@@ -27,7 +27,6 @@ function getAllProducts() {
     listProducts = res.data.content;
     renderProducts(listProducts);
     addToCart(listProducts);
-    renderRelatedProducts(listProducts);
   });
   promise.catch(function (err) {
     console.log(err);
@@ -72,10 +71,10 @@ function getDetailedProduct(id) {
     method: "get",
   });
   promise.then(function (res) {
-    console.log(res.data.content);
     var product = res.data.content;
     renderDetailedProduct(product);
     renderSize(product);
+    renderRelatedProducts(product);
   });
   promise.catch(function (err) {
     console.log(err);
@@ -103,6 +102,7 @@ function renderDetailedProduct(product) {
     <div class="modal-footer product-modal-footer">
       <div class="related-products">
         <h3>Related Products</h3>
+        <div id="related-products" class="related-products-content"></div>
       </div>
     </div>
   </div>
@@ -124,11 +124,25 @@ function renderSize(product) {
 }
 
 // Render related products
-function renderRelatedProducts() {
+function renderRelatedProducts(product) {
   var relatedProducts = [];
-  console.log(listProducts);
-  var product = listProducts[i];
-  for (var i = 0; i < listProducts.length; i++) {}
+  relatedProducts = product.relatedProducts;
+  var content = "";
+  for (var i = 0; i < relatedProducts.length; i++) {
+    content += `
+    <div class="related-products-item"> 
+    <div class="related-products-item-content"></div>    
+      <a onclick="getDetailedProduct('${relatedProducts[i].id}')">
+        <img src=${relatedProducts[i].image} />       
+      </a>   
+
+      <div class="related-products-text">
+        <h3>${relatedProducts[i].name}</h3>
+      </div>
+    </div>    
+    `;
+  }
+  document.getElementById("related-products").innerHTML = content;
 }
 
 // Get Products by Category
