@@ -1,6 +1,9 @@
 var listProducts = [];
 var cartListProduct = [];
 
+getLocalStorage();
+renderCart();
+
 // Active buttons
 var btnContainer = document.getElementById("buttonActive");
 var btns = btnContainer.getElementsByClassName("btn-danger");
@@ -62,6 +65,7 @@ function renderProducts(arr) {
     `;
   }
   document.getElementById("allProducts").innerHTML = content;
+  addToCart();
 }
 
 // Get Detailed Product
@@ -75,6 +79,7 @@ function getDetailedProduct(id) {
     renderDetailedProduct(product);
     renderSize(product);
     renderRelatedProducts(product);
+    addToCart(product);
   });
   promise.catch(function (err) {
     console.log(err);
@@ -96,7 +101,10 @@ function renderDetailedProduct(product) {
       <img src=${product.image} />
       <h4>AVAILABLE SIZE</h4>
       <p id="available-size" class="size"></p>
-      <p>In stock: ${product.quantity}</p>          
+      <p>In stock: ${product.quantity}</p>
+      <div class="button-add-to-cart">
+      <button data-id=${product.id}><i class="fa-solid fa-cart-plus"></i></button>          
+      </div>
     </div>
 
     <div class="modal-footer product-modal-footer">
@@ -230,7 +238,9 @@ function renderCart(data) {
             <img class="img-fluid" style="width:4rem" src="${product.image}">
           </div>
           <div style="width:40%; margin-bottom:10px">${product.name}</div>
-          <div style="width:40%; margin-bottom:10px">${product.size}</div> 
+          <div class="cartSize" style="width:40%; margin-bottom:10px">${
+            product.size
+          }</div> 
 
           <div style="width:15%; margin-bottom:10px">
             <button style="border:none; background-color:white"  onclick="handleDecreaseQuantity(${

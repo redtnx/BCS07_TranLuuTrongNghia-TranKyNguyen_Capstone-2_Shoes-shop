@@ -175,6 +175,24 @@ header .header_content .header_nav ul li a {
 .product-modal-content .product-modal-body .size-buttons button {
   background-color: #1d355e;
 }
+.product-modal-content .product-modal-body .button-add-to-cart {
+  display: flex;
+  justify-content: center;
+}
+.product-modal-content .product-modal-body .button-add-to-cart button {
+  padding: 10px 40px;
+  background-color: #bb2649;
+  border: 2px solid transparent;
+  color: #ffffff;
+  transition: all 0.5s;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.product-modal-content .product-modal-body .button-add-to-cart button:hover {
+  color: #bb2649;
+  border: 2px solid #bb2649;
+  background-color: #ffffff;
+}
 .product-modal-content .product-modal-footer {
   text-align: center;
   background-color: #bb2649;

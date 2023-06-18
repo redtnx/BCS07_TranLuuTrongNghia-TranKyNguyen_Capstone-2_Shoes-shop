@@ -194,6 +194,21 @@ header {
         background-color: $color-secondary;
       }
     }
+    .button-add-to-cart {
+      display: flex;
+      justify-content: center;
+      button {
+        @include styleButton(
+          10px 40px,
+          $color-primary,
+          2px solid transparent,
+          $color-white,
+          $color-primary,
+          2px solid $color-primary,
+          $color-white
+        );
+      }
+    }
   }
 
   .product-modal-footer {
