@@ -77,7 +77,11 @@
       aria-labelledby="exampleModalCenterTitle"
       aria-hidden="true"
     >
-      <div id="modal-content" class="modal-dialog" role="document"></div>
+      <div
+        id="product-modal-content"
+        class="modal-dialog"
+        role="document"
+      ></div>
     </div>
 
     <!-- Cart Modal -->
@@ -102,9 +106,9 @@
         aria-hidden="true"
       >
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">
+          <div class="modal-content cart-modal-content">
+            <div class="modal-header cart-modal-header">
+              <h5 class="modal-title cart-modal-title" id="exampleModalLabel">
                 <i class="fa fa-shopping-cart"></i>
               </h5>
               <button
@@ -117,12 +121,12 @@
               </button>
             </div>
 
-            <div class="modal-body">
+            <div id="cart-modal-body" class="modal-body cart-modal-body">
               Giỏ hàng hiện chưa có sản phẩm nào.
               <div id="total"></div>
             </div>
 
-            <div class="modal-footer">
+            <div class="modal-footer cart-modal-footer">
               <div id="footer"></div>
               <div>
                 <button

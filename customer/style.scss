@@ -145,8 +145,33 @@ header {
   }
 }
 
+.cart-modal-header {
+  background-color: $color-primary;
+  color: $color-white;
+}
+
+.cart-modal-footer {
+  background-color: $color-primary;
+  button {
+    @include styleButton(
+      10px 20px,
+      $color-white,
+      2px solid $color-primary,
+      $color-primary,
+      $color-white,
+      2px solid $color-primary,
+      $color-primary
+    );
+  }
+}
+
+.cart-modal-body {
+  color: $color-secondary;
+}
+
 .product-modal-content {
   .product-modal-header {
+    text-align: center;
     background-color: $color-primary;
     h3 {
       color: $color-white;
@@ -156,60 +181,52 @@ header {
     }
   }
 
-  h3 {
-    color: $color-primary;
-  }
-
   .product-modal-body {
+    img {
+      width: auto;
+    }
     h4 {
       color: $color-secondary;
     }
-  }
-
-  .size-buttons {
-    display: inline;
-    button {
-      background-color: $color-secondary;
+    .size-buttons {
+      display: inline;
+      button {
+        background-color: $color-secondary;
+      }
     }
   }
 
   .product-modal-footer {
+    text-align: center;
     background-color: $color-primary;
-    button {
-      @include styleButton(
-        10px 20px,
-        $color-white,
-        2px solid $color-primary,
-        $color-primary,
-        $color-white,
-        2px solid $color-primary,
-        $color-primary
-      );
-      &:hover {
-        border: 2px solid $color-white;
+    .related-products {
+      h3 {
+        color: $color-white;
       }
     }
   }
 }
 
 .btn-cart {
+  position: relative;
   margin-top: 40px;
   color: $color-primary;
   display: flex;
   justify-content: end;
 
   .quantity-of-cart-list {
+    justify-content: end;
     display: none;
     position: absolute;
     width: 30px;
     height: 30px;
-    top: -10px;
+    top: -15px;
     right: -15px;
     text-align: center;
-    color: black;
+    color: $color-white;
     font-size: 16px;
     font-weight: 600;
-    background-color: #ffffff;
+    background-color: $color-primary;
     border-radius: 50%;
   }
 }
@@ -277,7 +294,12 @@ header {
           }
           .buy_price {
             span {
-              @include styleText($fs-2, $fw-bold, $color-white);
+              transform: translateY(0);
+              color: $color-white;
+            }
+            button {
+              transform: translateX(0);
+              color: $color-white;
             }
           }
         }
@@ -326,24 +348,23 @@ header {
           margin-top: 5px;
 
           span {
-            color: $color-primary;
+            transition: all 0.5s;
+            color: transparent;
+            font-size: 40px;
             font-weight: bold;
             width: 50%;
             text-align: center;
+            transform: translateY(50px);
           }
 
           button {
+            font-size: 40px;
             width: 50%;
-            @include styleButton(
-              20px 40px,
-              $color-white,
-              none,
-              $color-primary,
-              $color-white,
-              none,
-              $color-primary
-            );
-            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            border: none;
+            background: none;
+            transition: all 4s;
+            color: transparent;
+            transform: translatex(-250px);
           }
         }
       }
