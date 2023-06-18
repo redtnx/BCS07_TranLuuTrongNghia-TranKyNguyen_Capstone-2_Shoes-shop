@@ -350,10 +350,6 @@ header {
               transform: translateY(0);
               color: $color-white;
             }
-            button {
-              transform: translateX(0);
-              color: $color-white;
-            }
           }
         }
       }
@@ -367,6 +363,12 @@ header {
       @media screen and (max-width: 992px) {
         & {
           width: calc(100% / 2 - 30px);
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        & {
+          width: calc(100%);
         }
       }
 
@@ -405,19 +407,9 @@ header {
             color: transparent;
             font-size: 40px;
             font-weight: bold;
-            width: 50%;
+            width: 100%;
             text-align: center;
             transform: translateY(50px);
-          }
-
-          button {
-            font-size: 40px;
-            width: 50%;
-            border: none;
-            background: none;
-            transition: all 1s;
-            color: transparent;
-            transform: translatex(-250px);
           }
         }
       }

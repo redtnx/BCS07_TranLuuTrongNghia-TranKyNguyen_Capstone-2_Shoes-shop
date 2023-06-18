@@ -58,7 +58,6 @@ function renderProducts(arr) {
             <span>
               $${products.price}
             </span>
-            <button data-id=${products.id} class="add-to-cart"><i class="fa-solid fa-cart-plus"></i></button>                
             </div>
         </div>
       </div>    
@@ -80,6 +79,7 @@ function getDetailedProduct(id) {
     renderSize(product);
     renderRelatedProducts(product);
     addToCart(product);
+    renderCartSize(product);
   });
   promise.catch(function (err) {
     console.log(err);
@@ -131,6 +131,19 @@ function renderSize(product) {
   document.getElementById("available-size").innerHTML = content;
 }
 
+// Render Cart Size
+function renderCartSize(product) {
+  var btns = document.querySelectorAll(".size-buttons button");
+  var btnValue = "";
+  for (var i = 0; i < btns.length; i++) {
+    console.log(btns[i].innerText);
+    btns[i].onclick = function () {
+      console.log(btns[i].innerHTML);
+    };
+  }
+  // document.getElementById("cartSize").innerHTML = btnValue;
+}
+
 // Render related products
 function renderRelatedProducts(product) {
   var relatedProducts = [];
@@ -176,7 +189,7 @@ const handleTotalMoney = () => {
     total += item.cartQuantity * item.price;
     totalCartQuantity += item.cartQuantity;
   });
-  document.getElementById("thanhToan").innerHTML = `<div>${total}$</div>`;
+  document.getElementById("thanhToan").innerHTML = `<div>$${total}</div>`;
   document.querySelector(".quantity-of-cart-list").style.display = "block";
   document.querySelector(".quantity-of-cart-list").innerHTML =
     totalCartQuantity;
@@ -227,7 +240,7 @@ function renderCart(data) {
       totalCartQuantity;
     document.getElementById(
       "thanhToan"
-    ).innerHTML = `<div>${totalMoney}$</div>`;
+    ).innerHTML = `<div>$${totalMoney}</div>`;
   }
 
   const newData = data || cartListProduct;
@@ -238,9 +251,9 @@ function renderCart(data) {
             <img class="img-fluid" style="width:4rem" src="${product.image}">
           </div>
           <div style="width:40%; margin-bottom:10px">${product.name}</div>
-          <div class="cartSize" style="width:40%; margin-bottom:10px">${
-            product.size
-          }</div> 
+          <div style="width:40%; margin-bottom:10px">
+          <p id="cartSize"></p>
+          </div> 
 
           <div style="width:15%; margin-bottom:10px">
             <button style="border:none; background-color:white"  onclick="handleDecreaseQuantity(${
@@ -251,9 +264,9 @@ function renderCart(data) {
               product.id
             })"><i class="fa fa-caret-right"></i></button>
           </div>
-          <div style="width:15%; margin-bottom:10px">${
+          <div style="width:15%; margin-bottom:10px">$${
             product.price * product.cartQuantity
-          }$</div>
+          }</div>
           <div style="width:5%"><button style="border:none; background-color:white" onclick="deleteItem(${
             product.id
           })"><i class="fa fa-trash"></i></button></div>

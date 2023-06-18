@@ -334,13 +334,14 @@ header .header_content .header_nav ul li a {
   transform: translateY(0);
   color: #ffffff;
 }
-.product .product_content .product_item:hover .product_text .buy_price button {
-  transform: translateX(0);
-  color: #ffffff;
-}
 @media screen and (max-width: 992px) {
   .product .product_content .product_item {
     width: calc(50% - 30px);
+  }
+}
+@media screen and (max-width: 600px) {
+  .product .product_content .product_item {
+    width: 100%;
   }
 }
 .product .product_content .product_item img {
@@ -379,16 +380,7 @@ header .header_content .header_nav ul li a {
   color: transparent;
   font-size: 40px;
   font-weight: bold;
-  width: 50%;
+  width: 100%;
   text-align: center;
   transform: translateY(50px);
-}
-.product .product_content .product_item .product_text .buy_price button {
-  font-size: 40px;
-  width: 50%;
-  border: none;
-  background: none;
-  transition: all 1s;
-  color: transparent;
-  transform: translatex(-250px);
 }
