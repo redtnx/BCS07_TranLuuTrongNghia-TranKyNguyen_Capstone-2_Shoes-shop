@@ -131,8 +131,7 @@ header {
 }
 
 .main-content {
-  width: 1140px;
-  max-width: calc(100% - 32px);
+  max-width: 1140px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -167,13 +166,33 @@ header {
   }
 
   .register {
+    width: 100%;
     display: flex;
-    margin-top: 60px;
-    gap: 100px;
-    &-left,
-    &-right {
-      flex: 1;
+    flex-wrap: wrap;
+    .register-left {
+      @media screen and (max-width: 992px) {
+        & {
+          width: 100%;
+        }
+      }
+      width: calc(100% / 2);
+      .sp-thongbao {
+        color: red;
+        margin-left: 2px;
+        display: none;
+      }
     }
+    .register-right {
+      @media screen and (max-width: 992px) {
+        & {
+          width: 100%;
+        }
+      }
+      width: calc(100% / 2);
+    }
+
+    margin-top: 60px;
+
     .gender-input {
       .gender-input-content {
         .gender-radio {

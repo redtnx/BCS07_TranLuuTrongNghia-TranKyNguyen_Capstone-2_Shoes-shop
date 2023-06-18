@@ -181,6 +181,12 @@ header {
   .product-modal-body {
     img {
       width: auto;
+
+      @media screen and (max-width: 600px) {
+        & {
+          width: 100%;
+        }
+      }
     }
     h4 {
       color: $color-secondary;
@@ -228,6 +234,18 @@ header {
     flex-wrap: wrap;
     gap: 10px;
     .related-products-item {
+      @media screen and (max-width: 992px) {
+        & {
+          width: calc(100% / 2 - 10px);
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        & {
+          width: calc(100%);
+        }
+      }
+
       margin-top: 20px;
       padding: 10px;
       border-radius: 10px;
@@ -247,6 +265,7 @@ header {
           filter: grayscale(0);
         }
       }
+
       width: calc(100% / 3 - 10px);
       transition: all 0.5s;
       &:hover {

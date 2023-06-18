@@ -66,8 +66,7 @@ header .header_content .header_nav ul li a {
 }
 
 .main-content {
-  width: 1140px;
-  max-width: calc(100% - 32px);
+  max-width: 1140px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -97,12 +96,31 @@ header .header_content .header_nav ul li a {
   color: #bb2649;
 }
 .register-form .register {
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   margin-top: 60px;
-  gap: 100px;
 }
-.register-form .register-left, .register-form .register-right {
-  flex: 1;
+.register-form .register .register-left {
+  width: 50%;
+}
+@media screen and (max-width: 992px) {
+  .register-form .register .register-left {
+    width: 100%;
+  }
+}
+.register-form .register .register-left .sp-thongbao {
+  color: red;
+  margin-left: 2px;
+  display: none;
+}
+.register-form .register .register-right {
+  width: 50%;
+}
+@media screen and (max-width: 992px) {
+  .register-form .register .register-right {
+    width: 100%;
+  }
 }
 .register-form .register .gender-input .gender-input-content {
   font-size: 2rem;

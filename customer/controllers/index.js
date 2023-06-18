@@ -79,7 +79,7 @@ function getDetailedProduct(id) {
     renderSize(product);
     renderRelatedProducts(product);
     addToCart(product);
-    renderCartSize(product);
+    // renderCartSize(product);
   });
   promise.catch(function (err) {
     console.log(err);
@@ -117,6 +117,12 @@ function renderDetailedProduct(product) {
   `;
 }
 
+// Get Size
+function getSize(size) {
+  console.log(size);
+  document.getElementById("cartSize").innerHTML = "Làm sao để in ra đây";
+}
+
 // Render Size
 function renderSize(product) {
   var size = product.size;
@@ -124,24 +130,11 @@ function renderSize(product) {
   for (var i = 0; i < size.length; i++) {
     content += `
     <div class="size-buttons">
-    <button class="btn btn-primary">${size[i]}</button>
+    <button class="btn btn-primary" onclick="getSize(${size[i]})"> ${size[i]}</button>
     </div>
     `;
   }
   document.getElementById("available-size").innerHTML = content;
-}
-
-// Render Cart Size
-function renderCartSize(product) {
-  var btns = document.querySelectorAll(".size-buttons button");
-  var btnValue = "";
-  for (var i = 0; i < btns.length; i++) {
-    console.log(btns[i].innerText);
-    btns[i].onclick = function () {
-      console.log(btns[i].textContent);
-    };
-  }
-  // document.getElementById("cartSize").innerHTML = btnValue;
 }
 
 // Render related products
