@@ -1,0 +1,153 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  padding: 40px 0;
+}
+header .header_content {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 992px) {
+  header .header_content {
+    display: block;
+    padding-left: 30px;
+  }
+}
+@media screen and (max-width: 992px) {
+  header .header_content .header_logo {
+    margin-bottom: 20px;
+  }
+}
+header .header_content .header_logo span {
+  font-size: 25px;
+  font-weight: 700;
+  color: #bb2649;
+}
+header .header_content .header_nav ul {
+  list-style: none;
+}
+header .header_content .header_nav ul li {
+  display: inline;
+  margin-right: 20px;
+  position: relative;
+}
+header .header_content .header_nav ul li::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  background-color: #bb2649;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  transition: all 0.5s;
+}
+header .header_content .header_nav ul li.active a {
+  color: #bb2649;
+}
+header .header_content .header_nav ul li.active::after {
+  width: 100%;
+}
+header .header_content .header_nav ul li:hover::after {
+  width: 100%;
+}
+header .header_content .header_nav ul li:hover a {
+  color: #bb2649;
+}
+header .header_content .header_nav ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1d355e;
+}
+
+.main-content {
+  width: 1140px;
+  max-width: calc(100% - 32px);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.form-control {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 30px;
+}
+.form-control p {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: red;
+}
+
+.register-form .form-container {
+  padding: 30px 120px;
+}
+.register-form .heading {
+  text-align: center;
+  font-weight: 700;
+  font-size: 4rem;
+  color: #bb2649;
+}
+.register-form .register {
+  display: flex;
+  margin-top: 60px;
+  gap: 100px;
+}
+.register-form .register-left, .register-form .register-right {
+  flex: 1;
+}
+.register-form .register .gender-input .gender-input-content {
+  font-size: 2rem;
+  font-weight: 400;
+  gap: 16px;
+  border-bottom: 3px solid #bb2649;
+  display: flex;
+}
+.register-form .register .gender-input .gender-input-content .gender-radio {
+  padding-left: 16px;
+}
+.register-form .register .gender-input .gender-input-content label:nth-child(1) {
+  padding-left: 16px;
+  font-size: 2rem;
+  font-weight: 400;
+}
+.register-form .register input {
+  font-size: 2rem;
+  font-weight: 400;
+  padding: 8px 16px;
+}
+.register-form .register input[type=text], .register-form .register input[type=password] {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: 3px solid transparent;
+  border-bottom: 3px solid #bb2649;
+}
+.register-form .register .form-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 3rem;
+}
+.register-form .register .btn-primary {
+  padding: 10px 40px;
+  background-color: #bb2649;
+  border: 2px solid transparent;
+  color: #ffffff;
+  transition: all 0.5s;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.register-form .register .btn-primary:hover {
+  color: #bb2649;
+  border: 2px solid #bb2649;
+  background-color: #ffffff;
+}

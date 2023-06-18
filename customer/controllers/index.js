@@ -138,7 +138,7 @@ function renderCartSize(product) {
   for (var i = 0; i < btns.length; i++) {
     console.log(btns[i].innerText);
     btns[i].onclick = function () {
-      console.log(btns[i].innerHTML);
+      console.log(btns[i].textContent);
     };
   }
   // document.getElementById("cartSize").innerHTML = btnValue;

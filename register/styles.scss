@@ -1,0 +1,228 @@
+// color:
+$color-primary: #bb2649;
+$color-secondary: #1d355e;
+$color-white: #ffffff;
+
+// font-weight:
+$fw-thin: 300;
+$fw-normal: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+
+// font-size:
+$fs-1: 16px;
+$fs-2: 18px;
+$fs-3: 25px;
+$fs-4: 40px;
+$fs-5: 60px;
+
+// spacing
+$spacer: 1rem;
+
+@mixin styleText($fs, $fw, $color) {
+  font-size: $fs;
+  font-weight: $fw;
+  color: $color;
+}
+
+@mixin styleButton(
+  $padding,
+  $bg-color,
+  $border,
+  $color,
+  $color-hover,
+  $border-hover,
+  $background-color-hover
+) {
+  padding: $padding;
+  background-color: $bg-color;
+  border: $border;
+  color: $color;
+  transition: all 0.5s;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-hover;
+    border: $border-hover;
+    background-color: $background-color-hover;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+// common
+
+header {
+  padding: 40px 0;
+  .header_content {
+    display: flex;
+    justify-content: space-between;
+
+    @media screen and (max-width: 992px) {
+      & {
+        display: block;
+        padding-left: 30px;
+      }
+    }
+
+    .header_logo {
+      @media screen and (max-width: 992px) {
+        & {
+          margin-bottom: 20px;
+        }
+      }
+
+      span {
+        @include styleText($fs-3, $fw-bold, $color-primary);
+      }
+    }
+    .header_nav {
+      ul {
+        list-style: none;
+        li {
+          display: inline;
+          margin-right: 20px;
+          position: relative;
+
+          &::after {
+            content: "";
+            width: 0;
+            height: 3px;
+            background-color: $color-primary;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            transition: all 0.5s;
+          }
+
+          &.active {
+            a {
+              color: $color-primary;
+            }
+            &::after {
+              width: 100%;
+            }
+          }
+
+          &:hover {
+            &::after {
+              width: 100%;
+            }
+            a {
+              color: $color-primary;
+            }
+          }
+
+          a {
+            text-decoration: none;
+            @include styleText($fs-1, $fw-semibold, $color-secondary);
+          }
+        }
+      }
+    }
+  }
+}
+
+.main-content {
+  width: 1140px;
+  max-width: calc(100% - 32px);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.form-control {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 30px;
+  p {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: red;
+  }
+}
+
+// register-form
+
+.register-form {
+  .form-container {
+    padding: 30px 120px;
+  }
+
+  .heading {
+    text-align: center;
+    font-weight: $fw-bold;
+    font-size: 4rem;
+    color: $color-primary;
+  }
+
+  .register {
+    display: flex;
+    margin-top: 60px;
+    gap: 100px;
+    &-left,
+    &-right {
+      flex: 1;
+    }
+    .gender-input {
+      .gender-input-content {
+        .gender-radio {
+          padding-left: 16px;
+        }
+        label:nth-child(1) {
+          padding-left: 16px;
+          font-size: 2rem;
+          font-weight: 400;
+        }
+        font-size: 2rem;
+        font-weight: 400;
+        gap: 16px;
+        border-bottom: 3px solid $color-primary;
+        display: flex;
+      }
+    }
+
+    input {
+      font-size: 2rem;
+      font-weight: 400;
+      padding: 8px 16px;
+      &[type="text"],
+      &[type="password"] {
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: 3px solid transparent;
+        border-bottom: 3px solid $color-primary;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 3rem;
+    }
+
+    .btn-primary {
+      @include styleButton(
+        10px 40px,
+        $color-primary,
+        2px solid transparent,
+        $color-white,
+        $color-primary,
+        2px solid $color-primary,
+        $color-white
+      );
+    }
+  }
+}

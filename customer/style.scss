@@ -39,9 +39,6 @@ header {
       }
 
       span {
-        // font-size: $fs-3;
-        // font-weight: $fw-bold;
-        // color: $color-primary;
         @include styleText($fs-3, $fw-bold, $color-primary);
       }
     }

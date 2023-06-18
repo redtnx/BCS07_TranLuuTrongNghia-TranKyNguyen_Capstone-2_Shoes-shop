@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyber Shoes</title>
+    <!-- FontAwesome 6.2.0 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- FontAwesome 6.2.0 CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <!-- GG Fonts Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Oswald:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div class="header_content">
+          <div class="header_logo">
+            <span>CyberShoes</span>
+          </div>
+          <nav class="header_nav">
+            <ul>
+              <li class="active">
+                <a href="./../customer/index.html">Customer</a>
+              </li>
+              <li><a href="#">Admin</a></li>
+              <li><a href="./../register/index.html">Register</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="main-content">
+        <div class="register-form">
+          <div class="form-container">
+            <h1 class="heading">Register</h1>
+            <div class="register">
+              <div class="register-left">
+                <div class="form-control">
+                  <input id="email" type="text" placeholder="Email" />
+                  <p class="require-field">(*)</p>
+                </div>
+                <div class="form-control">
+                  <input id="password" type="password" placeholder="Password" />
+                  <p class="require-field">(*)</p>
+                </div>
+                <div class="form-control">
+                  <input
+                    id="cfpassword"
+                    type="password"
+                    placeholder="Confirm password"
+                  />
+                  <p class="require-field">(*)</p>
+                </div>
+              </div>
+              <div class="register-right">
+                <div class="form-control">
+                  <input id="name" type="text" placeholder="Name" />
+                  <p class="require-field">(*)</p>
+                </div>
+                <div class="form-control">
+                  <input id="phone" type="text" placeholder="Phone" />
+                  <p class="require-field">(*)</p>
+                </div>
+                <div class="form-control gender-input">
+                  <div class="gender-input-content">
+                    <label>Gender</label>
+                    <div class="gender-radio">
+                      <input
+                        type="radio"
+                        name="gender"
+                        id="male"
+                        value="male"
+                        checked
+                      />
+                      <label for="male">Male</label>
+                    </div>
+
+                    <div class="gender-radio">
+                      <input
+                        type="radio"
+                        name="gender"
+                        id="female"
+                        value="female"
+                      />
+                      <label for="female">Female</label>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <button class="btn btn-primary" onclick="submitForm()">
+                    Submit
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
