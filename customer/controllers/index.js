@@ -26,10 +26,10 @@ function getAllProducts() {
     method: "get",
   });
   promise.then(function (res) {
-    // console.log(res);
+    console.log(res);
     listProducts = res.data.content;
     renderProducts(listProducts);
-    addToCart(listProducts);
+    // addToCart(listProducts);
   });
   promise.catch(function (err) {
     console.log(err);
@@ -64,7 +64,6 @@ function renderProducts(arr) {
     `;
   }
   document.getElementById("allProducts").innerHTML = content;
-  addToCart();
 }
 
 // Get Detailed Product
@@ -78,15 +77,19 @@ function getDetailedProduct(id) {
     renderDetailedProduct(product);
     renderSize(product);
     renderRelatedProducts(product);
-    addToCart(product);
   });
   promise.catch(function (err) {
     console.log(err);
   });
 }
 
+function getDetailProduct(product) {
+  console.log(product);
+}
+
 // Render Detailed Product
 function renderDetailedProduct(product) {
+  console.log(product);
   document.getElementById("product-modal-content").innerHTML = `
   <div class="modal-content product-modal-content">
     <div class="modal-header product-modal-header">
@@ -114,26 +117,6 @@ function renderDetailedProduct(product) {
     </div>
   </div>
   `;
-}
-
-// Get Size
-function getSize(size) {
-  console.log(cartSize);
-  // document.querySelector("#cartSize").innerHTML = size;
-}
-
-// Render Size
-function renderSize(product) {
-  var size = product.size;
-  var content = "";
-  for (var i = 0; i < size.length; i++) {
-    content += `
-    <div class="size-buttons">
-    <button class="btn btn-primary" onclick="getSize(${size[i]})"> ${size[i]}</button>
-    </div>
-    `;
-  }
-  document.getElementById("available-size").innerHTML = content;
 }
 
 // Render related products
@@ -165,6 +148,7 @@ function getProductByCategory(categoryId) {
     method: "get",
   });
   promise.then(function (res) {
+    console.log(res);
     renderProducts(res.data.content);
   });
 
@@ -242,7 +226,9 @@ function renderCart(data) {
             <img class="img-fluid" style="width:4rem" src="${product.image}">
           </div>
           <div style="width:40%; margin-bottom:10px">${product.name}</div>
-          <div id="cartSize" style="width:10%; margin-bottom:10px"></div> 
+          <div style="width:40%; margin-bottom:10px">
+          <p id="cartSize">${product?.sizeSelected}</p>
+          </div> 
 
           <div style="width:15%; margin-bottom:10px">
             <button style="border:none; background-color:white"  onclick="handleDecreaseQuantity(${
@@ -267,33 +253,56 @@ function renderCart(data) {
 }
 
 // Add to cart
-function addToCart() {
-  const buttonElements = document.querySelectorAll("button");
+function addToCart(size) {
+  if (size) {
+    const buttonElements = document.querySelectorAll("button");
+    console.log("addCart");
+    buttonElements.forEach((el) => {
+      el.addEventListener("click", () => {
+        const id = el.getAttribute("data-id");
+        const item = listProducts.find((product) => product.id == id);
+        if (!item) return;
 
-  buttonElements.forEach((el) => {
-    el.addEventListener("click", () => {
-      const id = el.getAttribute("data-id");
-      const item = listProducts.find((product) => product.id == id);
-      if (!item) return;
+        const itemExist = cartListProduct.find(
+          (product) => product.id === item.id
+        );
 
-      const itemExist = cartListProduct.find(
-        (product) => product.id === item.id
-      );
+        if (!itemExist) {
+          cartListProduct = [
+            {
+              cartQuantity: 1,
+              sizeSelected: size,
+              ...item,
+            },
+            ...cartListProduct,
+          ];
+        }
 
-      if (!itemExist) {
-        cartListProduct = [
-          {
-            cartQuantity: 1,
-            ...item,
-          },
-          ...cartListProduct,
-        ];
-      }
-
-      renderCart();
-      handleTotalMoney();
+        renderCart(cartListProduct);
+        handleTotalMoney();
+      });
     });
-  });
+  }
+  return;
+}
+
+function getSize(size) {
+  addToCart(size);
+}
+
+// Render Size
+function renderSize(product) {
+  console.log(product);
+  var size = product.size;
+  var content = "";
+  for (var i = 0; i < size.length; i++) {
+    content += `
+    <div class="size-buttons">
+    <button class="btn btn-primary" onclick="getSize(${size[i]})">${size[i]}</button>
+    </div>
+    `;
+  }
+  document.getElementById("available-size").innerHTML = content;
 }
 
 // Thanh toán
