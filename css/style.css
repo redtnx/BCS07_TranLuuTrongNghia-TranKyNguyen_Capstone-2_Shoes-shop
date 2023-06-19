@@ -399,3 +399,51 @@ header .header_content .header_nav ul li a {
   text-align: center;
   transform: translateY(50px);
 }
+
+footer {
+  background-color: #bb2649;
+  padding: 40px 0;
+}
+footer .contact {
+  box-shadow: rgba(255, 255, 255, 0.849) 0px 7px 29px 0px;
+  border-radius: 20px;
+  background-color: #ffffff;
+}
+footer h4 {
+  font-weight: 700;
+  color: #bb2649;
+}
+footer .contact-row {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-evenly;
+}
+footer .contact-row .help a,
+footer .contact-row .orders a {
+  color: #1d355e;
+}
+footer .contact-row ul {
+  list-style: none;
+}
+footer .contact-row ul a {
+  text-decoration: none;
+  transition: all 0.5s;
+}
+footer .contact-row ul a:hover {
+  color: #bb2649;
+}
+footer .contact-row .contact-item {
+  padding-left: 16px;
+  color: #1d355e;
+  border-left: 3px solid transparent;
+  gap: 20px;
+  width: calc(33.3333333333% - 20px);
+  transition: all 0.5s;
+}
+footer .contact-row .contact-item:hover {
+  border-left: 3px solid #bb2649;
+  transform: translateY(-10px);
+}
+footer .contact-row .contact-item .contact-action {
+  color: #bb2649;
+}

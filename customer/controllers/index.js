@@ -26,7 +26,7 @@ function getAllProducts() {
     method: "get",
   });
   promise.then(function (res) {
-    console.log(res);
+    // console.log(res);
     listProducts = res.data.content;
     renderProducts(listProducts);
     addToCart(listProducts);
@@ -79,7 +79,6 @@ function getDetailedProduct(id) {
     renderSize(product);
     renderRelatedProducts(product);
     addToCart(product);
-    // renderCartSize(product);
   });
   promise.catch(function (err) {
     console.log(err);
@@ -119,8 +118,8 @@ function renderDetailedProduct(product) {
 
 // Get Size
 function getSize(size) {
-  console.log(size);
-  document.getElementById("cartSize").innerHTML = "Làm sao để in ra đây";
+  console.log(cartSize);
+  // document.querySelector("#cartSize").innerHTML = size;
 }
 
 // Render Size
@@ -166,7 +165,6 @@ function getProductByCategory(categoryId) {
     method: "get",
   });
   promise.then(function (res) {
-    console.log(res);
     renderProducts(res.data.content);
   });
 
@@ -244,9 +242,7 @@ function renderCart(data) {
             <img class="img-fluid" style="width:4rem" src="${product.image}">
           </div>
           <div style="width:40%; margin-bottom:10px">${product.name}</div>
-          <div style="width:40%; margin-bottom:10px">
-          <p id="cartSize"></p>
-          </div> 
+          <div id="cartSize" style="width:10%; margin-bottom:10px"></div> 
 
           <div style="width:15%; margin-bottom:10px">
             <button style="border:none; background-color:white"  onclick="handleDecreaseQuantity(${

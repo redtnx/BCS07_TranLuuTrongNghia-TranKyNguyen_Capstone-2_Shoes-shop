@@ -432,3 +432,54 @@ header {
     }
   }
 }
+
+footer {
+  background-color: $color-primary;
+  .contact {
+    box-shadow: rgba(255, 255, 255, 0.849) 0px 7px 29px 0px;
+    border-radius: 20px;
+    background-color: $color-white;
+  }
+  h4 {
+    font-weight: $fw-bold;
+    color: $color-primary;
+  }
+  padding: 40px 0;
+  .contact-row {
+    .help,
+    .orders {
+      a {
+        color: $color-secondary;
+      }
+    }
+    padding: 20px 0;
+    ul {
+      list-style: none;
+      a {
+        text-decoration: none;
+        transition: all 0.5s;
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
+    display: flex;
+    justify-content: space-evenly;
+
+    .contact-item {
+      &:hover {
+        border-left: 3px solid $color-primary;
+        transform: translateY(-10px);
+      }
+      padding-left: 16px;
+      color: $color-secondary;
+      border-left: 3px solid transparent;
+      gap: 20px;
+      width: calc(100% / 3 - 20px);
+      transition: all 0.5s;
+      .contact-action {
+        color: $color-primary;
+      }
+    }
+  }
+}

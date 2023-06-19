@@ -57,6 +57,11 @@ $spacer: 1rem;
   font-family: "Montserrat", sans-serif;
 }
 
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
 // common
 
 header {
@@ -128,12 +133,6 @@ header {
       }
     }
   }
-}
-
-.main-content {
-  max-width: 1140px;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 .form-control {
@@ -223,13 +222,6 @@ header {
         border: 3px solid transparent;
         border-bottom: 3px solid $color-primary;
       }
-    }
-
-    .form-group {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      font-size: 3rem;
     }
 
     .btn-primary {
